@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>university-manager</artifactId>
+	<artifactId>UniversityManager</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>university-manager</name>
+	<name>UniversityManager</name>
 	<description>Test project for BotsCrew</description>
 	<url/>
 	<licenses>
@@ -47,6 +47,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate.validator</groupId>
+			<artifactId>hibernate-validator</artifactId>
 		</dependency>
 	</dependencies>
 
