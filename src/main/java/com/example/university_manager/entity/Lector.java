@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.Table;
 import jakarta.persistence.EnumType;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -12,6 +13,7 @@ import jakarta.validation.constraints.PositiveOrZero;
 import java.math.BigDecimal;
 
 @Entity
+@Table(name = "lectors")
 public class Lector {
 
     public Lector() {

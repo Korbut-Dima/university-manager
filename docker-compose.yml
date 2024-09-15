@@ -2,9 +2,14 @@ services:
   db:
     image: postgres
     ports:
-      - "5432:5432"
+      - "5500:5432"
     restart: always
     environment:
       - POSTGRES_PASSWORD=universityManager
       - POSTGRES_USER=universityManager
       - POSTGRES_DB=universityManager
+    healthcheck:
+      test: [ "CMD", "pg_isready" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
