@@ -11,8 +11,6 @@ Before you begin, ensure you have the following tools installed on your machine:
 ## Getting Started
 
 
-First, clone this repository to your local machine using the following command:
-
 ```bash
 git clone https://github.com/Korbut-Dima/university-manager.git
 cd university-manager
