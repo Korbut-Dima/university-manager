@@ -1,7 +1,6 @@
 package com.example.university_manager.repository;
 
 import com.example.university_manager.entity.Department;
-import com.example.university_manager.entity.Lector;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
