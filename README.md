@@ -15,5 +15,5 @@ Before you begin, ensure you have the following tools installed on your machine:
 git clone https://github.com/Korbut-Dima/university-manager.git
 cd university-manager
 mvn clean install -DskipTests
-docker-compose up
+docker-compose up -d
 java -jar target/UniversityManager-0.0.1-SNAPSHOT.jar
