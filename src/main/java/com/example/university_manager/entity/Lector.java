@@ -38,4 +38,44 @@ public class Lector {
     @NotNull(message = "Salary is expected")
     @PositiveOrZero(message = "Salary should be zero or greater")
     private BigDecimal salary;
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getSecondName() {
+        return secondName;
+    }
+
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public Rank getDegree() {
+        return degree;
+    }
+
+    public void setDegree(Rank degree) {
+        this.degree = degree;
+    }
+
+    public BigDecimal getSalary() {
+        return salary;
+    }
+
+    public void setSalary(BigDecimal salary) {
+        this.salary = salary;
+    }
 }

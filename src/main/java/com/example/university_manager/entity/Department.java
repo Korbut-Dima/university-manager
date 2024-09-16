@@ -31,4 +31,28 @@ public class Department {
             inverseJoinColumns = @JoinColumn(name = "lector_id")
     )
     private Set<Lector> lectors;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Lector getDepartmentHead() {
+        return departmentHead;
+    }
+
+    public void setDepartmentHead(Lector departmentHead) {
+        this.departmentHead = departmentHead;
+    }
+
+    public Set<Lector> getLectors() {
+        return lectors;
+    }
+
+    public void setLectors(Set<Lector> lectors) {
+        this.lectors = lectors;
+    }
 }
