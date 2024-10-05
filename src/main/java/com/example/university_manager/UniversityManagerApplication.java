@@ -1,13 +1,14 @@
 package com.example.university_manager;
 
+import com.example.university_manager.entity.Rank;
 import com.example.university_manager.service.DepartmentService;
 import com.example.university_manager.service.LectorService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
+import java.util.function.BiFunction;
 import java.util.function.Function;
 
 @SpringBootApplication
@@ -113,9 +114,9 @@ public class UniversityManagerApplication {
 		System.out.print("Enter the department name: ");
 		String departmentName = scanner.nextLine();
 		try {
-			Map<String, Integer> statistics = departmentService.getStatistic(departmentName);
-			for (Map.Entry<String, Integer> entry : statistics.entrySet()) {
-				System.out.println(entry.getKey() + " = " + entry.getValue());
+			Map<Rank, Integer> statistics = departmentService.getStatistic(departmentName);
+			for (Map.Entry<Rank, Integer> entry : statistics.entrySet()) {
+				System.out.println(entry.getKey().getTitle() + " = " + entry.getValue());
 			}
 		} catch (RuntimeException e) {
 			System.out.println(e.getMessage());

@@ -2,6 +2,7 @@ package com.example.university_manager.service;
 
 import com.example.university_manager.entity.Department;
 import com.example.university_manager.entity.Lector;
+import com.example.university_manager.entity.Rank;
 import com.example.university_manager.exception.DepartmentIsEmptyException;
 import com.example.university_manager.exception.DepartmentNotFoundException;
 import com.example.university_manager.repository.DepartmentRepository;
@@ -32,19 +33,31 @@ public class DepartmentService {
         throw new DepartmentIsEmptyException(departmentName +  " department does not have any head");
     }
 
-    public Map<String, Integer> getStatistic(String departmentName ) {
+    public Map<Rank, Integer> getStatistic(String departmentName ) {
         departmentExistCheck(departmentName);
 
         List<Object[]> results = repository.findDegreeCountsByDepartment(departmentName).orElseThrow(
                 () -> new DepartmentIsEmptyException(departmentName +  " department does not have any member")
         );
 
-        Map<String, Integer> degreeCounts = new HashMap<>();
+        Map<Rank, Integer> degreeCounts = new HashMap<>();
         for (Object[] result : results) {
-            String degree = (String) result[0];
+            String rankValue = (String) result[0];
+            Rank rank = Rank.valueOf(rankValue);
+
             Long count = ((Number) result[1]).longValue();
-            degreeCounts.put(degree, count.intValue());
+            degreeCounts.put(rank, count.intValue());
         }
+
+        for (Rank rank : Rank.values()) {
+            degreeCounts.computeIfAbsent(rank, r -> 0);
+        }
+
+        /*for (Rank rank : Rank.values()) {
+            if( !degreeCounts.keySet().contains(rank) ) {
+                degreeCounts.put(rank, 0);
+            }
+        }*/
 
         return degreeCounts;
     }

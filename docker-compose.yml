@@ -8,8 +8,3 @@ services:
       - POSTGRES_PASSWORD=universityManager
       - POSTGRES_USER=universityManager
       - POSTGRES_DB=universityManager
-    healthcheck:
-      test: [ "CMD", "pg_isready" ]
-      interval: 10s
-      timeout: 5s
-      retries: 5
