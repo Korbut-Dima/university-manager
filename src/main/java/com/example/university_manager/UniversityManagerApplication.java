@@ -59,6 +59,9 @@ public class UniversityManagerApplication {
 				case "5":
 					handleDepartmentStatistics(scanner);
 					break;
+				case "6":
+					handleCallGroupmates(scanner);
+					break;
 				default:
 					System.out.println("Invalid choice, please try again.");
 			}
@@ -74,6 +77,7 @@ public class UniversityManagerApplication {
 		System.out.println("3. Show count of employee for {department_name}");
 		System.out.println("4. Show the average salary for the department {department_name}");
 		System.out.println("5. Show {department_name} statistics");
+		System.out.println("6. Call groupmates for {lector_name}");
 	}
 
 	private void handleHeadOfDepartment(Scanner scanner) {
@@ -121,6 +125,14 @@ public class UniversityManagerApplication {
 		} catch (RuntimeException e) {
 			System.out.println(e.getMessage());
 		}
+	}
+
+	private void handleCallGroupmates(Scanner scanner) {
+		System.out.print("Enter a part of the lector's name: ");
+		String namePart = scanner.nextLine();
+
+		Function<String, String> groupmatesFunction = lectorService::findGroupmates;
+		printResult(groupmatesFunction, namePart, "%s");
 	}
 
 	void printResult(Function<String,String> some, String depName, String format) {

@@ -32,4 +32,17 @@ public class LectorService {
         }
         throw new LectorNotFoundException("Lector with name part: " + namePart + " is not found");
     }
+
+    public String findGroupmates(String namePart) {
+        List<Lector> groupmates = repository.findGroupmatesByLectorNamePart(namePart);
+
+        if (!groupmates.isEmpty()) {
+            return groupmates.stream()
+                    .map(lector -> lector.getFirstName() + " " +
+                            (lector.getSecondName() != null ? lector.getSecondName() + " " : "") +
+                            lector.getLastName())
+                    .collect(Collectors.joining(", "));
+        }
+        throw new LectorNotFoundException("No groupmates found for lector with name part: " + namePart);
+    }
 }
